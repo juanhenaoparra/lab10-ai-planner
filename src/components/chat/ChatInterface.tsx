@@ -18,7 +18,7 @@ export function ChatInterface({
 }: ChatInterfaceProps) {
   const [input, setInput] = useState('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const hasApiKey = !!process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  const hasApiKey = !!process.env.NEXT_PUBLIC_ANTHROPIC_API_KEY;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -45,7 +45,7 @@ export function ChatInterface({
       <div className="flex-1 overflow-y-auto p-4">
         {messages.length === 0 ? (
           <p className="text-gray-500 text-center mt-4">
-            Start a conversation with your AI assistant
+            Start a conversation with Claude, your AI assistant
           </p>
         ) : (
           messages.map((message) => (
@@ -55,7 +55,7 @@ export function ChatInterface({
         {isLoading && (
           <div className="flex justify-start mb-4">
             <div className="bg-gray-100 text-gray-900 rounded-lg px-4 py-2">
-              <p className="text-sm">Thinking...</p>
+              <p className="text-sm">Claude is thinking...</p>
             </div>
           </div>
         )}
